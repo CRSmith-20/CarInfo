@@ -12,6 +12,9 @@ namespace CarInfo.Backend
 {
   public class Startup
   {
+
+    readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
+
     public Startup(IConfiguration configuration) {
       Configuration = configuration;
     }
@@ -21,7 +24,7 @@ namespace CarInfo.Backend
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services) {
       services.AddControllers();
-
+      services.AddCors();
       services.AddSwaggerGen();
 
       services.AddDbContext<CarDBContext>(options =>
@@ -34,9 +37,8 @@ namespace CarInfo.Backend
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
       if(env.IsDevelopment()) {
         app.UseDeveloperExceptionPage();
+        app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
       }
-
-      app.UseDeveloperExceptionPage();
 
       app.UseSwagger();
       app.UseSwaggerUI(c => {

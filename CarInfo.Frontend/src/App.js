@@ -1,24 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import MakeSelector from './components/makeSelector/makeSelector';
+import {BrowserRouter, Switch, Route} from "react-router-dom";
+import CarModels from './components/carModels/carModels';
+import ModelYears from './components/modelYears/modelYears';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path = "/" component={MakeSelector}/>
+        <Route exact path = "/models/:make" component={CarModels}/>
+        <Route exact path = "/years/:model" component={ModelYears}/>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
