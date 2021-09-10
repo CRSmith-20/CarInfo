@@ -14,17 +14,18 @@ class CarModels extends Component {
     }
 
     render() { 
-        if(this.state.models === ""){
+        if(this.state.models === []){
             return(<div>loading...</div>)
         }
-        //Href will be updated to direct to years endpoint
+
+        //refactor mapping into shared function
         return (   
             <div>
                 <div>
                 {this.state.models.map(function(item){
                     return(
                     <div key={item}>
-                        <a href='/'>{item}</a> 
+                        <a href={"/years/" + item}>{item}</a> 
                     </div>);
                 }.bind(this))}
                 </div>

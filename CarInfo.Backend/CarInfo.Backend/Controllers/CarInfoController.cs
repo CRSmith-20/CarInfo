@@ -36,5 +36,14 @@ namespace CarInfo.Backend.Controllers
 
       return Ok(results);
     }
+
+    [HttpGet]
+    [Route("years/{model}")]
+    public ActionResult GetYearsForModel([FromRoute] string model) {
+      var carDataAccessor = new CarInfoAccessor(dbContext);
+      var results = carDataAccessor.GetYears(model);
+
+      return Ok(results);
+    }
   }
 }
