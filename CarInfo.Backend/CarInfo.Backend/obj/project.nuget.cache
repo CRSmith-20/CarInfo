@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6HKNfn/RoG9+dLI5juErA45cmnK81RV3bab7xYd0whQI31po9wfSaI3WatSQifdjOS/Hx/OAnCfUI3IHpCvxQA==",
+  "dgSpecHash": "ghrZ1EdvpWJ0CIGV7sFpfaeYZQn4GtUHVL8/o5vO9YlXIQ2Ah4UiOpZBLtON5ggl28zYBidCLpcRjC6n2N540A==",
   "success": true,
-  "projectFilePath": "C:\\code\\car\\CarInfo.Backend\\CarInfo.Backend\\CarInfo.Backend\\CarInfo.Backend.csproj",
+  "projectFilePath": "C:\\code\\car\\CarInfo.Backend\\CarInfo.Backend\\CarInfo.Backend.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pants\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Pants\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
