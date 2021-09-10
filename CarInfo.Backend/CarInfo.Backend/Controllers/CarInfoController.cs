@@ -20,12 +20,21 @@ namespace CarInfo.Backend.Controllers
     [Route("make")]
     public ActionResult GetCarMake() {
       var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetMakeModel();
-      if (results.Count() > 0){
-        return Ok();
+      var results = carDataAccessor.GetMake();
+
+      if(results == String.Empty) {
+        return BadRequest("No available Makes");
       }
-      
-      return BadRequest("didn't work");
+      return Ok(results);
+    }
+    
+    [HttpGet]
+    [Route("model/{make}")]
+    public ActionResult GetModelForMake([FromRoute] string make) {
+      var carDataAccessor = new CarInfoAccessor(dbContext);
+      var results = carDataAccessor.GetModel(make);
+
+      return Ok(results);
     }
   }
 }
