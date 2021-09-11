@@ -1,5 +1,5 @@
 ﻿using CarInfo.Backend.DataAccess;
-using CarInfo.Backend.Models;
+using CarInfo.Backend.API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,16 +11,15 @@ namespace CarInfo.Backend.Controllers
 {
   public class CarInfoController : Controller
   {
-    public CarDBContext dbContext;
+    private CarInfoAccessor _carInfoAccessor;
     public CarInfoController(CarDBContext context) {
-      dbContext = context;
+      _carInfoAccessor = new CarInfoAccessor(context);
     }
 
     [HttpGet]
     [Route("make")]
     public ActionResult GetCarMake() {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetMake();
+      var results = _carInfoAccessor.GetMake();
 
       if(results == String.Empty) {
         return BadRequest("No available Makes");
@@ -29,10 +28,9 @@ namespace CarInfo.Backend.Controllers
     }
     
     [HttpGet]
-    [Route("model/{make}")]
+    [Route("models/{make}")]
     public ActionResult GetModelForMake([FromRoute] string make) {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetModel(make);
+      var results = _carInfoAccessor.GetModel(make);
 
       return Ok(results);
     }
@@ -40,10 +38,16 @@ namespace CarInfo.Backend.Controllers
     [HttpGet]
     [Route("years/{model}")]
     public ActionResult GetYearsForModel([FromRoute] string model) {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetYears(model);
+      var results = _carInfoAccessor.GetYears(model);
 
       return Ok(results);
+    }
+
+    [HttpGet]
+    [Route("details/{id}")]
+    public ActionResult GetCarInfo([FromRoute] int id) {
+      var results = _carInfoAccessor.GetCarDetails(id);
+      return Ok();
     }
   }
 }
