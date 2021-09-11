@@ -1,46 +1,30 @@
-import { Component } from 'react';
-import * as actions from '../../actions/actions.jsx';
+import React, { useEffect, useState } from 'react';
+import { getYearsForModel } from '../../actions/actions.jsx';
+import { Link } from 'react-router-dom';
 
-class ModelYears extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-        this.state = { model: props.match.params.model, years: [], activeID: "" }
-    }
+function ModelYears(props) {
+    const [model] = useState(props.match.params.model)
+    const [years, setYears] = useState([])
 
-    componentDidMount() {
-        actions.getYearsForModel(this.state.model).then(results => 
-            this.setState(results)
-        );
-    }
+    useEffect(() => {
+        getYearsForModel(model).then(results => {
+            setYears(results);
+        })
+    }, [])
 
-    renderCar(id) {
-        this.setState({activeID: id});
-    }
-
-    render() { 
-        if(this.state.years === []){
-            return(<div>loading...</div>)
-        }
-
-        if(this.state.activeID !== "") {
-            //return <CarDetails id=this.state.activeID/>
-        }
-
-        return (   
+    return (   
+        <div>
             <div>
-                <div>
-                {this.state.years.map(function(yearWithId){
-                    return(
-                    <div key={yearWithId["ID"]}>
-                        <a onClick={() => this.renderCar()}>{yearWithId["Year"]}</a> 
-                    </div>);
-                }.bind(this))}
-                </div>
-                <a href="/">Return to Makes</a>
+            {years.map(yearWithId => {
+                return(
+                <div key={yearWithId["ID"]}>
+                    <Link to={'/' + model + '/' + yearWithId["ID"]}>{yearWithId["Year"]}</Link> 
+                </div>);
+            })}
             </div>
-        )
-    }
+            <Link to="/">Return to Makes</Link>
+        </div>
+    )
 }
 
 export default ModelYears;

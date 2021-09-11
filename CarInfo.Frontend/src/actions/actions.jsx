@@ -30,13 +30,12 @@ export async function getYearsForModel(model) {
     var data = await axios.get(GET_YEARS_FOR_MODEL + model).then(
         response => {
             console.log(response.data)
-            let x = []
+            let yearsWithId = []
             response.data.map(function(pair) {
                 console.log();
-                x.push({ID: pair["ID"], "Year": pair["Year"]});
+                yearsWithId.push({ID: pair["ID"], "Year": pair["Year"]});
             })
-            console.log(x);
-            return {years: x}
+            return yearsWithId
         }
     );
 
