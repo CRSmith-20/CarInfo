@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import * as actions from '../actions.jsx';
+import * as actions from '../../actions/actions.jsx';
 
 class CarModels extends Component {
     constructor(props) {

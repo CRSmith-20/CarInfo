@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import MakeSelector from './components/makeSelector/makeSelector';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import CarModels from './components/carModels/carModels';
+import MakeSelector from './components/makeSelector/makeSelector'
 import ModelYears from './components/modelYears/modelYears';
 
 function App() {

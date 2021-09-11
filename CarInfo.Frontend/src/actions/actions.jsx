@@ -9,7 +9,7 @@ export async function getAvailableMakes() {
     var data = await axios.get(GET_AVAILABLE_MAKES).then(
         response => {
             console.log(response);
-            return { makes: response.data };
+            return response.data;
         }
     );
     
@@ -42,3 +42,5 @@ export async function getYearsForModel(model) {
 
     return data;
 }
+
+export default getAvailableMakes;
