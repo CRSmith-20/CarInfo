@@ -1,14 +1,11 @@
 ﻿using CarInfo.Backend.API.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace CarInfo.Backend.DataAccess
-{
-  public class CarInfoAccessor
-  {
+namespace CarInfo.Backend.DataAccess {
+
+  public class CarInfoAccessor {
     public CarDBContext dbContext;
 
     public CarInfoAccessor(CarDBContext carDBContext) {

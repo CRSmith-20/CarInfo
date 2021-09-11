@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace CarInfo.Backend.API.Models {
 
-#nullable disable
+  public partial class CarDetail {
+    public int Id { get; set; }
+    public int CarId { get; set; }
+    public string Drive { get; set; }
+    public string Transmission { get; set; }
 
-namespace CarInfo.Backend.API.Models
-{
-    public partial class CarDetail
-    {
-        public int Id { get; set; }
-        public int CarId { get; set; }
-        public string Drive { get; set; }
-        public string Transmission { get; set; }
-
-        public virtual CarMakeModel Car { get; set; }
-    }
+    public virtual CarMakeModel Car { get; set; }
+  }
 }

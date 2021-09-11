@@ -6,12 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
-namespace CarInfo.Backend
-{
-  public class Startup
-  {
+namespace CarInfo.Backend {
+
+  public class Startup {
 
     readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
 

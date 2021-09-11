@@ -1,16 +1,11 @@
 ﻿using CarInfo.Backend.DataAccess;
 using CarInfo.Backend.API.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CarInfo.Backend.Controllers
-{
-  public class CarInfoController : Controller
-  {
+namespace CarInfo.Backend.Controllers {
+
+  public class CarInfoController : Controller {
     private CarInfoAccessor _carInfoAccessor;
     public CarInfoController(CarDBContext context) {
       _carInfoAccessor = new CarInfoAccessor(context);
@@ -26,7 +21,7 @@ namespace CarInfo.Backend.Controllers
       }
       return Ok(results);
     }
-    
+
     [HttpGet]
     [Route("models/{make}")]
     public ActionResult GetModelForMake([FromRoute] string make) {
