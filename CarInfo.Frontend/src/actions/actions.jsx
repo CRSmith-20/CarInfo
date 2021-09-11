@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 
 const GET_AVAILABLE_MAKES = process.env.REACT_APP_API_BASE_URL + '/make'
-const GET_MODELS_FOR_MAKES = process.env.REACT_APP_API_BASE_URL + '/model/'
+const GET_MODELS_FOR_MAKES = process.env.REACT_APP_API_BASE_URL + '/models/'
 const GET_YEARS_FOR_MODEL = process.env.REACT_APP_API_BASE_URL + '/years/'
 
 export async function getAvailableMakes() {
@@ -19,7 +19,7 @@ export async function getAvailableMakes() {
 export async function getModelsForMake(maker) {
     var data = await axios.get(GET_MODELS_FOR_MAKES + maker).then(
         response => {
-            return { models: response.data}
+            return response.data
         }
     );
 

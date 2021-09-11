@@ -20,7 +20,7 @@ function MakeSelector(props) {
             {makes.map(item => {
                 return(
                 <div key={item}>
-                    <Link to={"/models/" + item}>{item}</Link>
+                    <Link to={"/" + item}>{item}</Link>
                 </div>);
             })}
         </div>

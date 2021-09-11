@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path = "/" component={MakeSelector}/>
-        <Route exact path = "/models/:make" component={CarModels}/>
-        <Route exact path = "/years/:model" component={ModelYears}/>
+        <Route exact path = "/:make" component={CarModels}/>
+        <Route exact path = "/:model/years" component={ModelYears}/>
       </Switch>
     </BrowserRouter>
   );
