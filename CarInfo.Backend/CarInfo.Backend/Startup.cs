@@ -1,5 +1,5 @@
 using CarInfo.Backend.DataAccess;
-using CarInfo.Backend.Models;
+using CarInfo.Backend.API.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

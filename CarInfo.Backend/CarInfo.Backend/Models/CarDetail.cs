@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace CarInfo.Backend.Models
+namespace CarInfo.Backend.API.Models
 {
     public partial class CarDetail
     {

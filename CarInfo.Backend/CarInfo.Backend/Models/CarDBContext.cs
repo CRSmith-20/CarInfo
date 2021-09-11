@@ -1,38 +1,33 @@
 ﻿using System;
-using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
-namespace CarInfo.Backend.Models
+namespace CarInfo.Backend.API.Models
 {
     public partial class CarDBContext : DbContext
     {
-        public CarDBContext()
-        {
+      public CarDBContext() {
+      }
+
+      public CarDBContext(DbContextOptions<CarDBContext> options, IConfiguration configuration)
+          : base(options) {
+      }
+
+      public virtual DbSet<CarDetail> CarDetails { get; set; }
+      public virtual DbSet<CarMakeModel> CarMakeModels { get; set; }
+      public virtual DbSet<EngineDetail> EngineDetails { get; set; }
+
+      private readonly IConfiguration _configuration;
+
+      protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        if(!optionsBuilder.IsConfigured) {
+          optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
-
-        public CarDBContext(DbContextOptions<CarDBContext> options, IConfiguration configuration)
-            : base(options)
-        {
-        }
-
-        public virtual DbSet<CarDetail> CarDetails { get; set; }
-        public virtual DbSet<CarMakeModel> CarMakeModels { get; set; }
-        public virtual DbSet<EngineDetail> EngineDetails { get; set; }
-
-        private readonly IConfiguration _configuration;
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
-            }
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+      }
+      protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
