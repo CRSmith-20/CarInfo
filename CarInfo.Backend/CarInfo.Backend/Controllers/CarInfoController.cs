@@ -42,7 +42,8 @@ namespace CarInfo.Backend.Controllers {
     [Route("details/{id}")]
     public ActionResult GetCarInfo([FromRoute] int id) {
       var results = _carInfoAccessor.GetCarDetails(id);
-      return Ok();
+      
+      return Ok(results);
     }
   }
 }

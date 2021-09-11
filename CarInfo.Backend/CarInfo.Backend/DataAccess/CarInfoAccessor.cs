@@ -34,17 +34,29 @@ namespace CarInfo.Backend.DataAccess {
     public string GetYears(string model) {
       var results = dbContext.CarMakeModels
         .Where(row => row.Model == model)
+        .OrderBy(row => row.ModelYear)
         .Select(row => new YearWithId { ID = row.Id, Year = row.ModelYear });
-      //order by years asc
 
       return JsonConvert.SerializeObject(results);
     }
 
     public string GetCarDetails(int id) {
-      //var results = dbContext.CarDetails
-      //  .GroupJoin(
-      //  )
-      return "";
+      var results = dbContext.CarDetails
+        .Where(row => row.CarId == id)
+        .Join(dbContext.EngineDetails, 
+        cd => cd.CarId == id, 
+        ed => ed.CarId == id, 
+        (cd, ed) => new CarWithEngine{ 
+          Drive = cd.Drive,
+          Transmission = cd.Transmission,
+          EngineStyle = ed.EngineStyle,
+          Horsepower = ed.Horsepower,
+          EngineRpm = ed.EngineRpm,
+          CityMpg = ed.CityMpg,
+          HighwayMpg = ed.HighwayMpg
+        });
+
+      return JsonConvert.SerializeObject(results);
     }
   }
 }
