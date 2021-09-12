@@ -11,11 +11,22 @@ describe("getAvailableMakes", () => {
                 "Hyundai", "Ford", "Volkswagen", "Toyota"
             ]
 
-            axios.get.mockResolvedValueOnce(makes);
+            axios.get.mockResolvedValueOnce({data: makes});
 
             const result = await getAvailableMakes();
 
             expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/make')
+            expect(result).toEqual(makes);
         });
     });
+    describe("when API call fails", () => {
+        it("should return an error", async () => {
+            axios.get.mockRejectedValueOnce(new Error("Generic Failure"));
+
+            const result = await getAvailableMakes();
+
+            expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/make')
+            expect(result).toEqual("API Request failed with: Error: Generic Failure")
+        })
+    })
 })

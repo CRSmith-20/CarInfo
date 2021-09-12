@@ -11,7 +11,9 @@ export async function getAvailableMakes() {
         response => {
             return response.data;
         }
-    );
+    )
+    .catch(error => "API Request failed with: " + error);
+
     
     return data;
 }
