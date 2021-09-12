@@ -13,7 +13,6 @@ function CarDetails(props, state) {
     const [errorState, setError] = useState([]);
 
     useEffect(() => {getCarDetails(carId).then(response => {
-        console.log(response);
             if(response.CarInfo === undefined || response.EngineData === undefined){
                 setError(response)
             }
@@ -22,7 +21,6 @@ function CarDetails(props, state) {
         })
     }, [])
 
-    console.log(errorState);
     if(errorState.length > 0){
         return(<ErrorDisplay title={"Details for " + currentYear + " " + currentModel}></ErrorDisplay>);
     }

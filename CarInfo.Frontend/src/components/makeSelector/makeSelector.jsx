@@ -13,7 +13,7 @@ function MakeSelector(props) {
         })
     }, [])
 
-    if(makes[0] == "Error"){
+    if(makes !== undefined && makes[0] == "Error"){
         return(<ErrorDisplay title="Select Make"></ErrorDisplay>);
     }
 
