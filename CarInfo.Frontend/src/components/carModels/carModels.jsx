@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getModelsForMake } from '../../actions/actions.jsx';
-import { Alert } from 'react-bootstrap'
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
 
 function CarModels(props){
@@ -15,11 +15,11 @@ function CarModels(props){
     }, [])
 
     if(models[0] == "Error"){
-        return(<div>
-            <h1 style={{textAlign: 'center'}}>Select Model</h1>
-            <Alert key="error" variant={'warning'} style={{textAlign: 'center'}}>An error has occurred while loading, please refresh and try again.</Alert>
-            
-        </div>)
+        return(<ErrorDisplay title="Select Model"></ErrorDisplay>);
+    }
+
+    if(models.length == 0){
+        return(<div>loading...</div>)
     }
 
     return (   

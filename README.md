@@ -1,4 +1,6 @@
 Front end:
+- I would have liked to make a generic "loading" component, but decided to keep it a bit simpler for now. The code is set up to support it similar to errorDisplay.
+- Additionally, it would be preferable if not every component was reliant on errorDisplay, there's likely a better pattern to inject it as a generic error response.
 
 Back end:
 - CarWithEngine pulls back redundant data, but this is extensible in the future when specific car styles are added to CarDetails. An alternative I considered was making 2 separate queries and making the CarWithEngine object take an IEnumerable of EngineDetails, but this was a lot of extra lift for not much extra value, and pigeon holes the object to only ever have a single car detail, or growing to have 2 IEnumerables which is arguably less valuable in the long run.

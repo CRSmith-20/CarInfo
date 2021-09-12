@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getYearsForModel } from '../../actions/actions.jsx';
 import { Link } from 'react-router-dom';
-import { Alert } from 'react-bootstrap'
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
 function ModelYears(props) {
     const [model] = useState(props.match.params.model)
@@ -14,11 +14,11 @@ function ModelYears(props) {
     }, [])
 
     if(years[0] == "Error"){
-        return(<div>
-            <h1 style={{textAlign: 'center'}}>Select Years</h1>
-            <Alert key="error" variant={'warning'} style={{textAlign: 'center'}}>An error has occurred while loading, please refresh and try again.</Alert>
-            
-        </div>)
+        return(<ErrorDisplay title="Select Year"></ErrorDisplay>);
+    }
+
+    if(years.length == 0){
+        return(<div>loading...</div>)
     }
 
     return (   

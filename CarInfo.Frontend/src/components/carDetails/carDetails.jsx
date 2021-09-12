@@ -1,7 +1,7 @@
 import React, {useEffect, useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { getCarDetails } from '../../actions/actions.jsx';
-import { Alert } from 'react-bootstrap'
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
 
 function CarDetails(props, state) {
@@ -24,11 +24,11 @@ function CarDetails(props, state) {
 
     console.log(errorState);
     if(errorState.length > 0){
-        return(<div>
-            <h1 style={{textAlign: 'center'}}>Details for {currentYear + " " + currentModel}</h1>
-            <Alert key="error" variant={'warning'} style={{textAlign: 'center'}}>An error has occurred while loading, please refresh and try again.</Alert>
-            
-        </div>)
+        return(<ErrorDisplay title={"Details for " + currentYear + " " + currentModel}></ErrorDisplay>);
+    }
+
+    if(engineData.length == 0){
+        return(<div>loading...</div>)
     }
 
     return (
