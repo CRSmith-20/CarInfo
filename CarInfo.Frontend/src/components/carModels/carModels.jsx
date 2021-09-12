@@ -18,12 +18,12 @@ function CarModels(props){
             {models.map(item => {
                 return(
                     <div key={item}>
-                        <a href={"/" + item + "/years/" }>{item}</a> 
+                        <Link to={"/model/" + item}>{item}</Link> 
                     </div>);
                 })
             }
             </div>
-            <Link to="/">Return to Makes</Link>
+            <button onClick={props.history.goBack}>Return to Makes</button>
         </div>
     )
 }
