@@ -31,6 +31,7 @@ Create Table EngineDetails(
 
 --Note: Seed data pulled from Kelly Blue Book (kbb.com)
 INSERT INTO CarMakeModel Values('Hyundai', 'Sonata', 2014)
+INSERT INTO CarMakeModel Values('Hyundai', 'Elantra', 2014)
 INSERT INTO CarMakeModel Values('Hyundai', 'Sonata', 2016)
 INSERT INTO CarMakeModel Values('Ford', 'Taurus', 2012)
 INSERT INTO CarMakeModel Values('Ford', 'Taurus', 2016)
@@ -62,4 +63,6 @@ INSERT INTO CarDetails VALUES(2, 'FWD', 'Automatic')
 INSERT INTO CarDetails VALUES(3, 'FWD', 'Automatic')
 INSERT INTO CarDetails VALUES(4, 'FWD', 'Automatic')
 INSERT INTO CarDetails VALUES(5, 'FWD', 'Automatic')
+INSERT INTO CarDetails VALUES(6, 'FWD', 'Automatic')
+
 
