@@ -12,9 +12,10 @@ export async function getAvailableMakes() {
             return response.data;
         }
     )
-    .catch(error => "API Request failed with: " + error);
+    .catch(error => {
+        return ["Error", "API Request failed with " + error]
+    });
 
-    
     return data;
 }
 
@@ -23,7 +24,8 @@ export async function getModelsForMake(maker) {
         response => {
             return response.data
         }
-    );
+    )
+    .catch(error => "API Request failed with: " + error);
 
     return data;
 }
@@ -33,11 +35,12 @@ export async function getYearsForModel(model) {
         response => {
             let yearsWithId = []
             response.data.map(function(pair) {
-                yearsWithId.push({ID: pair["ID"], "Year": pair["Year"]});
+                yearsWithId.push({ID: pair["ID"], Year: pair["Year"]});
             })
             return yearsWithId
         }
-    );
+    )
+    .catch(error => "API Request failed with: " + error);
 
     return data;
 }
@@ -57,8 +60,8 @@ export async function getCarDetails(id) {
             })
             return {CarInfo: carInfo, EngineData: engineData}
         }
-    );
+    )
+    .catch(error => "API Request failed with: " + error);
+
     return data;
 }
-
-export default getAvailableMakes;

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { getAvailableMakes } from '../../actions/actions.jsx';
+import { Alert } from 'react-bootstrap'
 
 function MakeSelector(props) {
-    const [makes, setMakes] = useState(new Array());
+    const [makes, setMakes] = useState([]);
 
     useEffect(() => {
         getAvailableMakes().then(response => {
@@ -11,8 +12,12 @@ function MakeSelector(props) {
         })
     }, [])
 
-    if(makes === []){
-        return(<div>loading...</div>)
+    if(makes[0] == "Error"){
+        return(<div>
+            <h1 style={{textAlign: 'center'}}>Select Make</h1>
+            <Alert key="error" variant={'warning'} style={{textAlign: 'center'}}>An error has occurred while loading, please refresh and try again.</Alert>
+            
+        </div>)
     }
 
     return (
