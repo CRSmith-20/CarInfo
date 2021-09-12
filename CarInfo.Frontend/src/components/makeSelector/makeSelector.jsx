@@ -17,10 +17,14 @@ function MakeSelector(props) {
 
     return (
         <div>
+            <h1 style={{textAlign: 'center'}}>Select Make</h1>
+
             {makes.map(item => {
                 return(
-                <div key={item}>
-                    <Link to={"/" + item}>{item}</Link>
+                <div style={{display: 'inline-block', maxHeight: '500px', maxWidth: '500px'}} key={item}>
+                    <Link to={"/" + item}>
+                        <img style={{maxWidth: "500px", maxHeight: '500px'}} src={process.env.PUBLIC_URL + '/MakerImages/' + item + '.png'}></img>    
+                    </Link>
                 </div>);
             })}
         </div>
