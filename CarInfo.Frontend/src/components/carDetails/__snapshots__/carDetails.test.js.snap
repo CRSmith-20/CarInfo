@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarDetails /> when component initalizes should initalize to loading 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <CarDetails />
+</Router>
+`;
+
+exports[`<CarDetails /> when component loads should render models with links 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CarDetails
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "id": 3,
+            "model": "Gambino",
+            "year": 3005,
+          },
+        }
+      }
+    >
+      <div>
+        <h1
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          Details for 
+          3005 Gambino
+        </h1>
+        <ul>
+          <li>
+            yes
+          </li>
+          <li>
+            manual
+          </li>
+        </ul>
+        <div>
+          <div
+            key="0"
+          >
+            <h3>
+              big
+            </h3>
+            <ul>
+              <li>
+                Horsepower: 
+                1
+              </li>
+              <li>
+                RPM: 
+                3
+              </li>
+              <li>
+                City MPG: 
+                -1
+              </li>
+              <li>
+                Highway MPG: 
+                -2
+              </li>
+            </ul>
+          </div>
+          <div
+            key="1"
+          >
+            <h3>
+              awfe
+            </h3>
+            <ul>
+              <li>
+                Horsepower: 
+                10
+              </li>
+              <li>
+                RPM: 
+                123
+              </li>
+              <li>
+                City MPG: 
+                59999
+              </li>
+              <li>
+                Highway MPG: 
+                5
+              </li>
+            </ul>
+          </div>
+          <div
+            key="2"
+          >
+            <h3>
+              zxcvcxz
+            </h3>
+            <ul>
+              <li>
+                Horsepower: 
+                100
+              </li>
+              <li>
+                RPM: 
+                5432
+              </li>
+              <li>
+                City MPG: 
+                -2
+              </li>
+              <li>
+                Highway MPG: 
+                4
+              </li>
+            </ul>
+          </div>
+          <div
+            key="3"
+          >
+            <h3>
+              fewafew
+            </h3>
+            <ul>
+              <li>
+                Horsepower: 
+                1000
+              </li>
+              <li>
+                RPM: 
+                5555555
+              </li>
+              <li>
+                City MPG: 
+                -3
+              </li>
+              <li>
+                Highway MPG: 
+                6
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          Return to Years
+        </button>
+      </div>
+    </CarDetails>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<CarDetails /> when the api call fails should render a ErrorDisplay 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CarDetails
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "id": 3,
+            "model": "Gambino",
+            "year": 3005,
+          },
+        }
+      }
+    >
+      <ErrorDisplay
+        title="Details for 3005 Gambino"
+      >
+        <div>
+          <h1
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            Details for 3005 Gambino
+          </h1>
+          <Alert
+            closeLabel="Close alert"
+            key="error"
+            show={true}
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+            transition={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "defaultProps": Object {
+                  "appear": false,
+                  "in": false,
+                  "mountOnEnter": false,
+                  "timeout": 300,
+                  "unmountOnExit": false,
+                },
+                "render": [Function],
+              }
+            }
+            variant="warning"
+          >
+            <Fade
+              appear={false}
+              in={true}
+              mountOnEnter={false}
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+              timeout={300}
+              unmountOnExit={true}
+            >
+              <Transition
+                addEndListener={[Function]}
+                appear={false}
+                enter={true}
+                exit={true}
+                in={true}
+                mountOnEnter={false}
+                onEnter={[Function]}
+                onEntered={[Function]}
+                onEntering={[Function]}
+                onExit={[Function]}
+                onExited={[Function]}
+                onExiting={[Function]}
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <div
+                  className="fade alert alert-warning show"
+                  role="alert"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  An error has occurred while loading, please refresh and try again.
+                </div>
+              </Transition>
+            </Fade>
+          </Alert>
+        </div>
+      </ErrorDisplay>
+    </CarDetails>
+  </Router>
+</BrowserRouter>
+`;
