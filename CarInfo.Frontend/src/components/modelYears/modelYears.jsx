@@ -34,7 +34,7 @@ function ModelYears(props) {
             })}
 
             </div>
-            <button onClick={props.history.goBack}>Return to Makes</button>
+            <button onClick={props.history.goBack}>Return to Models</button>
         </div>
     )
 }
