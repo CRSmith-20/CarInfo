@@ -25,7 +25,9 @@ export async function getModelsForMake(maker) {
             return response.data
         }
     )
-    .catch(error => "API Request failed with: " + error);
+    .catch(error => {
+        return ["Error", "API Request failed with " + error]
+    });
 
     return data;
 }
@@ -40,8 +42,9 @@ export async function getYearsForModel(model) {
             return yearsWithId
         }
     )
-    .catch(error => "API Request failed with: " + error);
-
+    .catch(error => {
+        return ["Error", "API Request failed with " + error]
+    });
     return data;
 }
 
@@ -61,7 +64,9 @@ export async function getCarDetails(id) {
             return {CarInfo: carInfo, EngineData: engineData}
         }
     )
-    .catch(error => "API Request failed with: " + error);
-
+    .catch(error => {
+        return ["Error", "API Request failed with " + error]
+    });
+    
     return data;
 }

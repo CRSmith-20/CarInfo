@@ -46,6 +46,16 @@ describe("getModelsForMake", () => {
             expect(result).toEqual(models);
         })
     })
+    describe("when API call fails", () => {
+        it("should return an error", async () => {
+            axios.get.mockRejectedValueOnce(new Error("Generic Failure"));
+
+            const result = await getModelsForMake("Test");
+
+            expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/models/' + "Test" )
+            expect(result).toEqual(["Error", "API Request failed with Error: Generic Failure"])
+        })
+    })
 })
 
 describe("getYearsForModel", () => {
@@ -61,6 +71,16 @@ describe("getYearsForModel", () => {
 
             expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/years/' + "Test" )
             expect(result).toEqual(formattedPairs);
+        })
+    })
+    describe("when API call fails", () => {
+        it("should return an error", async () => {
+            axios.get.mockRejectedValueOnce(new Error("Generic Failure"));
+
+            const result = await getYearsForModel("Test");
+
+            expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/years/' + "Test" )
+            expect(result).toEqual(["Error", "API Request failed with Error: Generic Failure"])
         })
     })
 })
@@ -90,6 +110,16 @@ describe("getCarDetails", () => {
             expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/details/' + 5)
             expect(result.CarInfo).toEqual(formattedCarInfo);
             expect(result.EngineData).toEqual(formattedEngineData);
+        })
+    })
+    describe("when API call fails", () => {
+        it("should return an error", async () => {
+            axios.get.mockRejectedValueOnce(new Error("Generic Failure"));
+
+            const result = await getCarDetails(5);
+
+            expect(axios.get).toHaveBeenCalledWith(process.env.REACT_APP_API_BASE_URL + '/details/' + 5)
+            expect(result).toEqual(["Error", "API Request failed with Error: Generic Failure"])
         })
     })
 })

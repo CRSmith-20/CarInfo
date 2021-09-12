@@ -1,26 +1,40 @@
 import React, {useEffect, useState } from 'react';
 import { Link, useHistory} from 'react-router-dom';
 import { getCarDetails } from '../../actions/actions.jsx';
+import { Alert } from 'react-bootstrap'
+
 
 function CarDetails(props, state) {
     const [currentModel] = useState(props.match.params.model)
     const [currentYear] = useState(props.match.params.year)
-    const [carId] = useState(props.location.state.id);
+    const [carId] = useState(props.match.params.id);
     const [carInfo, setCarInfo] = useState([]);
     const [engineData, setEngineData] = useState([]);
+    const [errorState, setError] = useState([]);
 
     useEffect(() => {getCarDetails(carId).then(response => {
+        console.log(response);
+            if(response.CarInfo === undefined || response.EngineData === undefined){
+                setError(response)
+            }
             setCarInfo(response.CarInfo);
             setEngineData(response.EngineData);
         })
     }, [])
 
-    console.log(carInfo, engineData)
-
+    console.log(errorState);
+    if(errorState.length > 0){
+        return(<div>
+            <h1 style={{textAlign: 'center'}}>Details for {currentYear + " " + currentModel}</h1>
+            <Alert key="error" variant={'warning'} style={{textAlign: 'center'}}>An error has occurred while loading, please refresh and try again.</Alert>
+            
+        </div>)
+    }
 
     return (
     <div>
-        <h1/>
+        <h1 style={{textAlign: 'center'}}>Details for {currentYear + " " + currentModel}</h1>
+
         <ul>
             <li>{carInfo.Drive}</li>
             <li>{carInfo.Transmission}</li>

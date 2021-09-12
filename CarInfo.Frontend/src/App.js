@@ -13,7 +13,7 @@ function App() {
         <Route exact path = "/" component={MakeSelector}/>
         <Route exact path = "/:make" component={CarModels}/>
         <Route exact path = "/model/:model" component={ModelYears}/>
-        <Route exact path = "/details/:model/:year" component={CarDetails}/>
+        <Route exact path = "/details/:model/:year/:id" component={CarDetails}/>
       </Switch>
     </BrowserRouter>
   );
