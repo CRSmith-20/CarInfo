@@ -9,7 +9,6 @@ const GET_CAR_DETAILS = process.env.REACT_APP_API_BASE_URL + '/details/'
 export async function getAvailableMakes() {
     var data = await axios.get(GET_AVAILABLE_MAKES).then(
         response => {
-            console.log(response);
             return response.data;
         }
     );
