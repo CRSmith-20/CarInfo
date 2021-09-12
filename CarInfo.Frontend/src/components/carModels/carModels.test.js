@@ -1,46 +1,46 @@
 import {shallow, mount} from 'enzyme';
-import ModelYears from './modelYears';
+import CarModels from './carModels';
+import axios from "axios";
 import { BrowserRouter as Router } from 'react-router-dom';
+import { getModelsForMake } from '../../actions/actions';
 import { act } from "react-dom/test-utils";
 import toJson from 'enzyme-to-json';
 import { createMemoryHistory } from 'history'
-import { getYearsForModel } from '../../actions/actions';
 
-jest.mock("../../actions/actions", () => ({getYearsForModel: jest.fn()}));
+jest.mock("../../actions/actions", () => ({getModelsForMake: jest.fn()}));
 
-let formattedPairs;
+let models;
 let match;
 let wrapper;
 let history;
 
 beforeEach(() => {
-    formattedPairs = [
-        {ID: 1, Year: 1990}, {ID: 2, Year: 2220}, {ID: 3, Year: 3330}
+    models =  [
+        "Sonata", "Elantra", "Hotel", "Trivago"
     ]
-    match = { params: { model: 'Test' } }
+    match = { params: { make: 'Horrible' } }
 
     history = createMemoryHistory();
     history.location.key = 'consistent'; //needed for snapshot as it's unique per run
 
 });
 
-describe('<ModelYears />', () => {
+describe('<CarModels />', () => {
     describe('when component initalizes', () => {
         it('should initalize to loading', () => {
-            const test = shallow(<Router><ModelYears /></Router>);
+            const test = shallow(<Router><CarModels /></Router>);
             expect(toJson(test)).toMatchSnapshot();
         });
     });
     
     describe('when component loads', () => {
-        it('should render years with links', async () => {
-            
+        it('should render models with links', async () => {
             
             await act(async () => {
-                getYearsForModel.mockResolvedValueOnce(formattedPairs);
+                getModelsForMake.mockResolvedValueOnce(models);
                 wrapper = mount(
                     <Router>
-                        <ModelYears history={history} match={match} />
+                        <CarModels history={history} match={match} />
                     </Router>
                 );
             });
@@ -48,15 +48,15 @@ describe('<ModelYears />', () => {
             wrapper.update();
 
             expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('Link').length).toBe(3);
+            expect(wrapper.find('Link').length).toBe(4);
         })
     });
     
     describe('when the api call fails', () => {
         it('should render a ErrorDisplay', async () => {                      
             await act(async () => {
-                getYearsForModel.mockImplementationOnce(() => Promise.resolve(['Error', new Error("Generic Failure")]));
-                wrapper = mount(<Router><ModelYears history={history} match={match} /></Router>);
+                getModelsForMake.mockImplementationOnce(() => Promise.resolve(["Error", new Error("Generic Failure")]));
+                wrapper = mount(<Router><CarModels history={history} match={match} /></Router>);
             });
     
             wrapper.update();

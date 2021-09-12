@@ -136,7 +136,7 @@ exports[`<MakeSelector /> when component loads should render makes with images 1
 </BrowserRouter>
 `;
 
-exports[`<MakeSelector /> when component loads should render makes with images 2`] = `
+exports[`<MakeSelector /> when the api call fails should render a ErrorDisplay 1`] = `
 <BrowserRouter>
   <Router
     history={

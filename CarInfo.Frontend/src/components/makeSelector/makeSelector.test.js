@@ -1,12 +1,20 @@
 import {shallow, mount} from 'enzyme';
 import MakeSelector from './makeSelector';
-import axios from "axios";
+import { getAvailableMakes } from '../../actions/actions';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { act } from "react-dom/test-utils";
 import toJson from 'enzyme-to-json';
 
-jest.mock("axios");
+jest.mock("../../actions/actions", () => ({getAvailableMakes: jest.fn()}));
 
+let makes;
+let wrapper;
+
+beforeEach(() => {
+    makes = [
+        "Hyundai", "Ford"
+    ]
+})
 
 describe('<MakeSelector />', () => {
     describe('when component initalizes', () => {
@@ -17,15 +25,10 @@ describe('<MakeSelector />', () => {
     });
     
     describe('when component loads', () => {
-        it('should render makes with images', async () => {
-            const makes = [
-                "Hyundai", "Ford"
-            ]
-            
-            let wrapper;
+        it('should render makes with images', async () => {            
+            getAvailableMakes.mockImplementationOnce(() => Promise.resolve(makes));
             
             await act(async () => {
-                axios.get.mockResolvedValueOnce({data: makes});
                 wrapper = mount(<Router><MakeSelector /></Router>);
             });
     
@@ -36,12 +39,11 @@ describe('<MakeSelector />', () => {
         })
     });
     
-    describe('when component loads', () => {
-        it('should render makes with images', async () => {          
-            let wrapper;
-            
+    describe('when the api call fails', () => {
+        it('should render a ErrorDisplay', async () => {              
+            getAvailableMakes.mockImplementationOnce(() => Promise.resolve(["Error", new Error("Generic Failure")]));
+
             await act(async () => {
-                axios.get.mockRejectedValueOnce(new Error("Generic Failure"));
                 wrapper = mount(<Router><MakeSelector /></Router>);
             });
     
