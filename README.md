@@ -27,4 +27,4 @@ Database:
     - These tables would either be rows with the IDs and availability (i.e., CarID, FeatureID, Available) with a supplimentary Feature table to list out all possible features
     - Alternatively, it could be a single table with N many columns for each CarID and the features that are simply marked 'Standard', 'Optional', or 'Unavailable'. (e.g., CarID, Power Windows, CD Player, . . .)
 
-For any questions, comments, concerns, feedback, please email me at csmith240 at gmail dot com
+For any questions, comments, concerns, feedback, please email me at crsmith240 at gmail dot com
