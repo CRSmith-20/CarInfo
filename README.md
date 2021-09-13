@@ -13,8 +13,8 @@ Front end:
 - There's likely a lot of refactoring that could happen down the line to break logic out into components, but for the sake of time, I left them as is.
 
 Back end:
+- .NET CORE 3.1, ASP.NET MVC Core
 - Combo of MOQ and XUnit for controller / data access tests
-- .net core 3.1, asp.net mvc core
 - CarWithEngine pulls back redundant data, but this is extensible in the future when specific car styles are added to CarDetails. An alternative I considered was making 2 separate queries and making the CarWithEngine object take an IEnumerable of EngineDetails, but this was a lot of extra lift for not much extra value, and pigeon holes the object to only ever have a single car detail, or growing to have 2 IEnumerables which is arguably less valuable in the long run.
 - Controllers are really simple, I think the bulk of their use would come from filling out the CRUD operations, but for describing a car, this is all that was necessary.
 - 
@@ -26,3 +26,5 @@ Database:
 - Next steps would be making an InternalFeatures + ExternalFeatures table to relate back to CarDetails with a tri-state toggle for Standard, Optional, or Not Available. 
     - These tables would either be rows with the IDs and availability (i.e., CarID, FeatureID, Available) with a supplimentary Feature table to list out all possible features
     - Alternatively, it could be a single table with N many columns for each CarID and the features that are simply marked 'Standard', 'Optional', or 'Unavailable'. (e.g., CarID, Power Windows, CD Player, . . .)
+
+For any questions, comments, concerns, feedback, please email me at csmith240 at gmail dot com

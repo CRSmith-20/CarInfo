@@ -1,5 +1,4 @@
 import axios from 'axios';
-import React from 'react';
 
 const GET_AVAILABLE_MAKES = process.env.REACT_APP_API_BASE_URL + '/make'
 const GET_MODELS_FOR_MAKES = process.env.REACT_APP_API_BASE_URL + '/models/'

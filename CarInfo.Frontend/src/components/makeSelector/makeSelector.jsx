@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { getAvailableMakes } from '../../actions/actions.jsx';
-import { Alert } from 'react-bootstrap'
 import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
 function MakeSelector(props) {
