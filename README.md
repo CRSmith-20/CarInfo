@@ -1,5 +1,7 @@
 Notes / steps from here:
 
+Please disregard the language breakdown on github, since I committed the compiled css file (which is literally just all of bootstrap 5), it includes 11k lines of css.
+
 Front end:
 - React 17, ES6, tests are a combo of jest (mocking and API), and enzyme (component, in conjunction with jest). I used snapshots as more of a challenge than anything, it worked out pretty well in my opinion.
 
