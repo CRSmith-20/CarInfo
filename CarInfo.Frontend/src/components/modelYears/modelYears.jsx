@@ -13,28 +13,31 @@ function ModelYears(props) {
         })
     }, [])
 
-    if(years[0] == "Error"){
-        return(<ErrorDisplay title="Select Year"></ErrorDisplay>);
+    if (years[0] == "Error") {
+        return (<ErrorDisplay title="Select Year"></ErrorDisplay>);
     }
 
-    if(years.length == 0){
-        return(<div>loading...</div>)
+    if (years.length == 0) {
+        return (<div>loading...</div>)
     }
 
-    return (   
-        <div>
-            <div>
-            {years.map(yearWithId => {
-                return(
-                <div key={yearWithId["ID"]}>
-                    <Link to={'/details/' + model + '/' + yearWithId["Year"] + '/' + yearWithId["ID"]}>
-                        {yearWithId["Year"]}
-                    </Link> 
-                </div>);
-            })}
+    return (
+        <div className="container">
+            <h1 style={{ textAlign: "center" }}> Select Year </h1>
+            <div >
+                <div className="d-flex flex-wrap justify-content-center">
+                    {years.map(yearWithId => {
+                        return (
+                            <div className="d-flex col-3 mt-1 mb-1 justify-content-center" key={yearWithId["ID"]}>
+                                <Link type="button" className="btn btn-lg btn-primary" to={'/details/' + model + '/' + yearWithId["Year"] + '/' + yearWithId["ID"]}>
+                                    {yearWithId["Year"]}
+                                </Link>
+                            </div>);
+                    })}
 
+                </div>
+                <button type="button" className="mt-3 btn btn-secondary" onClick={props.history.goBack}>Return to Models</button>
             </div>
-            <button onClick={props.history.goBack}>Return to Models</button>
         </div>
     )
 }

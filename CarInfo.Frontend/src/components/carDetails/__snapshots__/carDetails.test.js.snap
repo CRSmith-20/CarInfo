@@ -94,7 +94,9 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
         }
       }
     >
-      <div>
+      <div
+        className="container"
+      >
         <h1
           style={
             Object {
@@ -105,22 +107,53 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
           Details for 
           3005 Gambino
         </h1>
-        <ul>
-          <li>
+        <div
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+          <h5
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Drive: 
             yes
-          </li>
-          <li>
+          </h5>
+          <h5
+            style={
+              Object {
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Transmission: 
             manual
-          </li>
-        </ul>
-        <div>
+          </h5>
+        </div>
+        <div
+          className="d-flex flex-wrap justify-content-left"
+        >
           <div
+            className="col-6 mt-2"
             key="0"
           >
-            <h3>
+            <h3
+              style={
+                Object {
+                  "textDecoration": "underline",
+                }
+              }
+            >
               big
             </h3>
-            <ul>
+            <ul
+              id="engine0"
+            >
               <li>
                 Horsepower: 
                 1
@@ -140,12 +173,21 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
             </ul>
           </div>
           <div
+            className="col-6 mt-2"
             key="1"
           >
-            <h3>
+            <h3
+              style={
+                Object {
+                  "textDecoration": "underline",
+                }
+              }
+            >
               awfe
             </h3>
-            <ul>
+            <ul
+              id="engine1"
+            >
               <li>
                 Horsepower: 
                 10
@@ -165,12 +207,21 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
             </ul>
           </div>
           <div
+            className="col-6 mt-2"
             key="2"
           >
-            <h3>
+            <h3
+              style={
+                Object {
+                  "textDecoration": "underline",
+                }
+              }
+            >
               zxcvcxz
             </h3>
-            <ul>
+            <ul
+              id="engine2"
+            >
               <li>
                 Horsepower: 
                 100
@@ -190,12 +241,21 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
             </ul>
           </div>
           <div
+            className="col-6 mt-2"
             key="3"
           >
-            <h3>
+            <h3
+              style={
+                Object {
+                  "textDecoration": "underline",
+                }
+              }
+            >
               fewafew
             </h3>
-            <ul>
+            <ul
+              id="engine3"
+            >
               <li>
                 Horsepower: 
                 1000
@@ -216,7 +276,9 @@ exports[`<CarDetails /> when component loads should render models with links 1`]
           </div>
         </div>
         <button
+          className="mt-3 btn btn-secondary"
           onClick={[Function]}
+          type="button"
         >
           Return to Years
         </button>

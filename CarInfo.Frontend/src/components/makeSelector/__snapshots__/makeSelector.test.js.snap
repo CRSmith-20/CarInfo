@@ -52,7 +52,9 @@ exports[`<MakeSelector /> when component loads should render makes with images 1
     }
   >
     <MakeSelector>
-      <div>
+      <div
+        className="container"
+      >
         <h1
           style={
             Object {
@@ -63,72 +65,64 @@ exports[`<MakeSelector /> when component loads should render makes with images 1
           Select Make
         </h1>
         <div
-          key="Hyundai"
-          style={
-            Object {
-              "display": "inline-block",
-              "maxHeight": "500px",
-              "maxWidth": "500px",
-            }
-          }
+          className="d-flex flex-wrap justify-content-center"
         >
-          <Link
-            to="/Hyundai"
+          <div
+            className="d-flex col-3 mt-1 mb-1 justify-content-center"
+            key="Hyundai"
           >
-            <LinkAnchor
-              href="/Hyundai"
-              navigate={[Function]}
+            <Link
+              to="/Hyundai"
             >
-              <a
+              <LinkAnchor
                 href="/Hyundai"
-                onClick={[Function]}
+                navigate={[Function]}
               >
-                <img
-                  src="/MakerImages/Hyundai.png"
-                  style={
-                    Object {
-                      "maxHeight": "500px",
-                      "maxWidth": "500px",
+                <a
+                  href="/Hyundai"
+                  onClick={[Function]}
+                >
+                  <img
+                    src="/MakerImages/Hyundai.png"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "width": "100%",
+                      }
                     }
-                  }
-                />
-              </a>
-            </LinkAnchor>
-          </Link>
-        </div>
-        <div
-          key="Ford"
-          style={
-            Object {
-              "display": "inline-block",
-              "maxHeight": "500px",
-              "maxWidth": "500px",
-            }
-          }
-        >
-          <Link
-            to="/Ford"
+                  />
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            className="d-flex col-3 mt-1 mb-1 justify-content-center"
+            key="Ford"
           >
-            <LinkAnchor
-              href="/Ford"
-              navigate={[Function]}
+            <Link
+              to="/Ford"
             >
-              <a
+              <LinkAnchor
                 href="/Ford"
-                onClick={[Function]}
+                navigate={[Function]}
               >
-                <img
-                  src="/MakerImages/Ford.png"
-                  style={
-                    Object {
-                      "maxHeight": "500px",
-                      "maxWidth": "500px",
+                <a
+                  href="/Ford"
+                  onClick={[Function]}
+                >
+                  <img
+                    src="/MakerImages/Ford.png"
+                    style={
+                      Object {
+                        "height": "100%",
+                        "width": "100%",
+                      }
                     }
-                  }
-                />
-              </a>
-            </LinkAnchor>
-          </Link>
+                  />
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
         </div>
       </div>
     </MakeSelector>

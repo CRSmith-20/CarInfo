@@ -92,87 +92,132 @@ exports[`<CarModels /> when component loads should render models with links 1`] 
         }
       }
     >
-      <div>
+      <div
+        className="container"
+      >
+        <h1
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+           Select Model 
+        </h1>
         <div>
           <div
-            key="Sonata"
+            className="d-flex flex-wrap justify-content-center"
           >
-            <Link
-              to="/model/Sonata"
+            <div
+              className="col-4 text-center"
+              key="Sonata"
             >
-              <LinkAnchor
-                href="/model/Sonata"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/model/Sonata"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/model/Sonata"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  Sonata
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            key="Elantra"
-          >
-            <Link
-              to="/model/Elantra"
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/model/Sonata"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Sonata
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+            <div
+              className="col-4 text-center"
+              key="Elantra"
             >
-              <LinkAnchor
-                href="/model/Elantra"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/model/Elantra"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/model/Elantra"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  Elantra
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            key="Hotel"
-          >
-            <Link
-              to="/model/Hotel"
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/model/Elantra"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Elantra
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+            <div
+              className="col-4 text-center"
+              key="Hotel"
             >
-              <LinkAnchor
-                href="/model/Hotel"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/model/Hotel"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/model/Hotel"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  Hotel
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            key="Trivago"
-          >
-            <Link
-              to="/model/Trivago"
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/model/Hotel"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Hotel
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+            <div
+              className="col-4 text-center"
+              key="Trivago"
             >
-              <LinkAnchor
-                href="/model/Trivago"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/model/Trivago"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/model/Trivago"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  Trivago
-                </a>
-              </LinkAnchor>
-            </Link>
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/model/Trivago"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Trivago
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
           </div>
         </div>
         <button
+          className="mt-3 btn btn-secondary"
           onClick={[Function]}
+          type="button"
         >
           Return to Makes
         </button>

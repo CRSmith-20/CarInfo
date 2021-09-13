@@ -54,7 +54,7 @@ describe('<CarDetails />', () => {
             wrapper.update();
 
             expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('ul').length).toBe(5);
+            expect(wrapper.find('ul').length).toBe(4);
         })
     });
     

@@ -30,19 +30,19 @@ function CarDetails(props, state) {
     }
 
     return (
-    <div>
+    <div className="container">
         <h1 style={{textAlign: 'center'}}>Details for {currentYear + " " + currentModel}</h1>
+        <div style={{textAlign: 'center'}}>    
+            <h5 style={{fontWeight:'bold'}}>Drive: {carInfo.Drive}</h5>
+            <h5 style={{fontWeight:'bold'}}>Transmission: {carInfo.Transmission}</h5>
+        </div>
 
-        <ul>
-            <li>{carInfo.Drive}</li>
-            <li>{carInfo.Transmission}</li>
-        </ul>
-        <div>
+        <div className="d-flex flex-wrap justify-content-left">
             {engineData.map((engine, index) => {
                 return(
-                    <div key={index}>
-                        <h3>{engine.Style}</h3>
-                        <ul>
+                    <div className="col-6 mt-2" key={index}>
+                        <h3 style={{textDecoration:'underline'}}>{engine.Style}</h3>
+                        <ul id={"engine" + index}>
                             <li>Horsepower: {engine.Horsepower}</li>
                             <li>RPM: {engine.Rpm}</li>
                             <li>City MPG: {engine.CityMPG}</li>
@@ -52,7 +52,7 @@ function CarDetails(props, state) {
                 )
             })}
         </div>
-        <button onClick={props.history.goBack}>Return to Years</button>
+        <button type="button" className="mt-3 btn btn-secondary" onClick={props.history.goBack}>Return to Years</button>
     </div>);
 }
 
