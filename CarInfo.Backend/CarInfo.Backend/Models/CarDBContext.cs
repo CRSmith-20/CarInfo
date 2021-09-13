@@ -6,8 +6,12 @@ namespace CarInfo.Backend.API.Models {
     public CarDBContext() {
     }
 
-    public CarDBContext(DbContextOptions<CarDBContext> options, IConfiguration configuration)
+    public CarDBContext(DbContextOptions<CarDBContext> options)
         : base(options) {
+    }
+
+    public CarDBContext(DbContextOptions<CarDBContext> options, IConfiguration configuration)
+            : base(options) {
     }
 
     public virtual DbSet<CarDetail> CarDetails { get; set; }
