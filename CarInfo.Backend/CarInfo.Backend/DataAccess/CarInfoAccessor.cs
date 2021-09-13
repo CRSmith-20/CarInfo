@@ -12,7 +12,7 @@ namespace CarInfo.Backend.DataAccess {
       dbContext = carDBContext;
     }
 
-    public string GetMake() {
+    public virtual string GetMake() {
       var results = dbContext.CarMakeModels.Select(row => row.Make).Distinct();
 
       if(results.Count() <= 0) {

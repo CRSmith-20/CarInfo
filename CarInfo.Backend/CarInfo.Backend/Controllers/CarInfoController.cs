@@ -6,15 +6,15 @@ using System;
 namespace CarInfo.Backend.Controllers {
 
   public class CarInfoController : Controller {
-    private CarInfoAccessor _carInfoAccessor;
+    public CarInfoAccessor carInfoAccessor;
     public CarInfoController(CarDBContext context) {
-      _carInfoAccessor = new CarInfoAccessor(context);
+      carInfoAccessor = new CarInfoAccessor(context);
     }
 
     [HttpGet]
     [Route("make")]
     public ActionResult GetCarMake() {
-      var results = _carInfoAccessor.GetMake();
+      var results = carInfoAccessor.GetMake();
 
       if(results == String.Empty) {
         return BadRequest("No available Makes");
@@ -25,7 +25,7 @@ namespace CarInfo.Backend.Controllers {
     [HttpGet]
     [Route("models/{make}")]
     public ActionResult GetModelForMake([FromRoute] string make) {
-      var results = _carInfoAccessor.GetModel(make);
+      var results = carInfoAccessor.GetModel(make);
 
       return Ok(results);
     }
@@ -33,7 +33,7 @@ namespace CarInfo.Backend.Controllers {
     [HttpGet]
     [Route("years/{model}")]
     public ActionResult GetYearsForModel([FromRoute] string model) {
-      var results = _carInfoAccessor.GetYears(model);
+      var results = carInfoAccessor.GetYears(model);
 
       return Ok(results);
     }
@@ -41,7 +41,7 @@ namespace CarInfo.Backend.Controllers {
     [HttpGet]
     [Route("details/{id}")]
     public ActionResult GetCarInfo([FromRoute] int id) {
-      var results = _carInfoAccessor.GetCarDetails(id);
+      var results = carInfoAccessor.GetCarDetails(id);
       
       return Ok(results);
     }
