@@ -92,71 +92,109 @@ exports[`<ModelYears /> when component loads should render years with links 1`] 
         }
       }
     >
-      <div>
+      <div
+        className="container"
+      >
+        <h1
+          style={
+            Object {
+              "textAlign": "center",
+            }
+          }
+        >
+           Select Year 
+        </h1>
         <div>
           <div
-            key="1"
+            className="d-flex flex-wrap justify-content-center"
           >
-            <Link
-              to="/details/Test/1990/1"
+            <div
+              className="d-flex col-3 mt-1 mb-1 justify-content-center"
+              key="1"
             >
-              <LinkAnchor
-                href="/details/Test/1990/1"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/details/Test/1990/1"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/details/Test/1990/1"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  1990
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            key="2"
-          >
-            <Link
-              to="/details/Test/2220/2"
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/details/Test/1990/1"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    1990
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+            <div
+              className="d-flex col-3 mt-1 mb-1 justify-content-center"
+              key="2"
             >
-              <LinkAnchor
-                href="/details/Test/2220/2"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/details/Test/2220/2"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/details/Test/2220/2"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  2220
-                </a>
-              </LinkAnchor>
-            </Link>
-          </div>
-          <div
-            key="3"
-          >
-            <Link
-              to="/details/Test/3330/3"
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/details/Test/2220/2"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    2220
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+            <div
+              className="d-flex col-3 mt-1 mb-1 justify-content-center"
+              key="3"
             >
-              <LinkAnchor
-                href="/details/Test/3330/3"
-                navigate={[Function]}
+              <Link
+                className="btn btn-lg btn-primary"
+                to="/details/Test/3330/3"
+                type="button"
               >
-                <a
+                <LinkAnchor
+                  className="btn btn-lg btn-primary"
                   href="/details/Test/3330/3"
-                  onClick={[Function]}
+                  navigate={[Function]}
+                  type="button"
                 >
-                  3330
-                </a>
-              </LinkAnchor>
-            </Link>
+                  <a
+                    className="btn btn-lg btn-primary"
+                    href="/details/Test/3330/3"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    3330
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
           </div>
+          <button
+            className="mt-3 btn btn-secondary"
+            onClick={[Function]}
+            type="button"
+          >
+            Return to Models
+          </button>
         </div>
-        <button
-          onClick={[Function]}
-        >
-          Return to Models
-        </button>
       </div>
     </ModelYears>
   </Router>

@@ -4,7 +4,7 @@ import { getModelsForMake } from '../../actions/actions.jsx';
 import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
 
-function CarModels(props){
+function CarModels(props) {
     const [make] = useState(props.match.params.make);
     const [models, setModels] = useState([]);
 
@@ -14,26 +14,29 @@ function CarModels(props){
         })
     }, [])
 
-    if(models[0] == "Error"){
-        return(<ErrorDisplay title="Select Model"></ErrorDisplay>);
+    if (models[0] == "Error") {
+        return (<ErrorDisplay title="Select Model"></ErrorDisplay>);
     }
 
-    if(models.length == 0){
-        return(<div>loading...</div>)
+    if (models.length == 0) {
+        return (<div>loading...</div>)
     }
 
-    return (   
-        <div>
-            <div>
-            {models.map(item => {
-                return(
-                    <div key={item}>
-                        <Link to={"/model/" + item}>{item}</Link> 
-                    </div>);
-                })
-            }
+    return (
+        <div className="container">
+            <h1 style={{ textAlign: "center" }}> Select Model </h1>
+            <div >
+                <div className="d-flex flex-wrap justify-content-center">
+                    {models.map(item => {
+                        return (
+                            <div className="col-4 text-center" key={item}>
+                                <Link type="button" className="btn btn-lg btn-primary" to={"/model/" + item}>{item}</Link>
+                            </div>);
+                    })
+                    }
+                </div>
             </div>
-            <button onClick={props.history.goBack}>Return to Makes</button>
+            <button type="button" className="mt-3 btn btn-secondary" onClick={props.history.goBack}>Return to Makes</button>
         </div>
     )
 }

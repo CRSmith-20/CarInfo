@@ -1,13 +1,12 @@
-import {shallow, mount} from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CarModels from './carModels';
-import axios from "axios";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { getModelsForMake } from '../../actions/actions';
 import { act } from "react-dom/test-utils";
 import toJson from 'enzyme-to-json';
 import { createMemoryHistory } from 'history'
 
-jest.mock("../../actions/actions", () => ({getModelsForMake: jest.fn()}));
+jest.mock("../../actions/actions", () => ({ getModelsForMake: jest.fn() }));
 
 let models;
 let match;
@@ -15,7 +14,7 @@ let wrapper;
 let history;
 
 beforeEach(() => {
-    models =  [
+    models = [
         "Sonata", "Elantra", "Hotel", "Trivago"
     ]
     match = { params: { make: 'Horrible' } }
@@ -32,10 +31,10 @@ describe('<CarModels />', () => {
             expect(toJson(test)).toMatchSnapshot();
         });
     });
-    
+
     describe('when component loads', () => {
         it('should render models with links', async () => {
-            
+
             await act(async () => {
                 getModelsForMake.mockResolvedValueOnce(models);
                 wrapper = mount(
@@ -44,21 +43,21 @@ describe('<CarModels />', () => {
                     </Router>
                 );
             });
-    
+
             wrapper.update();
 
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('Link').length).toBe(4);
         })
     });
-    
+
     describe('when the api call fails', () => {
-        it('should render a ErrorDisplay', async () => {                      
+        it('should render a ErrorDisplay', async () => {
             await act(async () => {
                 getModelsForMake.mockImplementationOnce(() => Promise.resolve(["Error", new Error("Generic Failure")]));
                 wrapper = mount(<Router><CarModels history={history} match={match} /></Router>);
             });
-    
+
             wrapper.update();
 
             expect(toJson(wrapper)).toMatchSnapshot();

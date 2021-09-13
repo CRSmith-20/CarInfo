@@ -1,12 +1,14 @@
-﻿using CarInfo.Backend.DataAccess;
-using CarInfo.Backend.API.Models;
+﻿using CarInfo.Backend.API.Models;
+using CarInfo.Backend.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
 namespace CarInfo.Backend.Controllers {
 
   public class CarInfoController : Controller {
+
     public CarInfoAccessor carInfoAccessor;
+    
     public CarInfoController(CarDBContext context) {
       carInfoAccessor = new CarInfoAccessor(context);
     }

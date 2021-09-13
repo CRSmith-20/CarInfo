@@ -1,5 +1,5 @@
-using CarInfo.Backend.DataAccess;
 using CarInfo.Backend.API.Models;
+using CarInfo.Backend.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +10,6 @@ using Microsoft.Extensions.Hosting;
 namespace CarInfo.Backend {
 
   public class Startup {
-
-    readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
 
     public Startup(IConfiguration configuration) {
       Configuration = configuration;

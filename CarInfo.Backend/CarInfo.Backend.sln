@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarInfo.Backend.API", "CarInfo.Backend\CarInfo.Backend.API.csproj", "{AC99EF58-71DF-4410-882B-87238CB2D614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarInfo.Backend.API.Tests", "API.Tests\CarInfo.Backend.API.Tests.csproj", "{632C78ED-B90C-4804-80A4-33443E4E2AC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarInfo.Backend.API.Tests", "CarInfo.Backend.API.Tests\CarInfo.Backend.API.Tests.csproj", "{632C78ED-B90C-4804-80A4-33443E4E2AC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

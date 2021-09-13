@@ -1,11 +1,12 @@
 ﻿using CarInfo.Backend.API.Models;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace CarInfo.Backend.DataAccess {
 
   public class CarInfoAccessor {
+
     public CarDBContext dbContext;
 
     public CarInfoAccessor(CarDBContext carDBContext) {
@@ -51,10 +52,10 @@ namespace CarInfo.Backend.DataAccess {
     public virtual string GetCarDetails(int id) {
       var results = dbContext.CarDetails
         .Where(row => row.CarId == id)
-        .Join(dbContext.EngineDetails, 
-        cd => cd.CarId == id, 
-        ed => ed.CarId == id, 
-        (cd, ed) => new CarWithEngine{ 
+        .Join(dbContext.EngineDetails,
+        cd => cd.CarId == id,
+        ed => ed.CarId == id,
+        (cd, ed) => new CarWithEngine {
           Drive = cd.Drive,
           Transmission = cd.Transmission,
           EngineStyle = ed.EngineStyle,
