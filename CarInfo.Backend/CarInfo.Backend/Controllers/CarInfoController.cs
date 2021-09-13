@@ -1,38 +1,36 @@
 ﻿using CarInfo.Backend.DataAccess;
-using CarInfo.Backend.Models;
-using Microsoft.AspNetCore.Http;
+using CarInfo.Backend.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CarInfo.Backend.Controllers
-{
-  public class CarInfoController : Controller
-  {
-    public CarDBContext dbContext;
+namespace CarInfo.Backend.Controllers {
+
+  public class CarInfoController : Controller {
+    public CarInfoAccessor carInfoAccessor;
     public CarInfoController(CarDBContext context) {
-      dbContext = context;
+      carInfoAccessor = new CarInfoAccessor(context);
     }
 
     [HttpGet]
     [Route("make")]
     public ActionResult GetCarMake() {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetMake();
+      var results = carInfoAccessor.GetMake();
 
       if(results == String.Empty) {
         return BadRequest("No available Makes");
       }
+
       return Ok(results);
     }
-    
+
     [HttpGet]
-    [Route("model/{make}")]
+    [Route("models/{make}")]
     public ActionResult GetModelForMake([FromRoute] string make) {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetModel(make);
+      var results = carInfoAccessor.GetModel(make);
+
+      if(results == String.Empty) {
+        return BadRequest("No available models for make " + make);
+      }
 
       return Ok(results);
     }
@@ -40,8 +38,23 @@ namespace CarInfo.Backend.Controllers
     [HttpGet]
     [Route("years/{model}")]
     public ActionResult GetYearsForModel([FromRoute] string model) {
-      var carDataAccessor = new CarInfoAccessor(dbContext);
-      var results = carDataAccessor.GetYears(model);
+      var results = carInfoAccessor.GetYears(model);
+
+      if(results == String.Empty) {
+        return BadRequest("No available years for model " + model);
+      }
+
+      return Ok(results);
+    }
+
+    [HttpGet]
+    [Route("details/{id}")]
+    public ActionResult GetCarInfo([FromRoute] int id) {
+      var results = carInfoAccessor.GetCarDetails(id);
+
+      if(results == String.Empty) {
+        return BadRequest("No available details for id " + id);
+      }
 
       return Ok(results);
     }

@@ -1,46 +1,42 @@
-import { Component } from 'react';
-import * as actions from '../actions.jsx';
+import { useState, useEffect } from 'react';
+import { getYearsForModel } from '../../actions/actions.jsx';
+import { Link } from 'react-router-dom';
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
-class ModelYears extends Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-        this.state = { model: props.match.params.model, years: [], activeID: "" }
+function ModelYears(props) {
+    const [model] = useState(props.match.params.model)
+    const [years, setYears] = useState([])
+
+    useEffect(() => {
+        getYearsForModel(model).then(results => {
+            setYears(results);
+        })
+    }, [])
+
+    if(years[0] == "Error"){
+        return(<ErrorDisplay title="Select Year"></ErrorDisplay>);
     }
 
-    componentDidMount() {
-        actions.getYearsForModel(this.state.model).then(results => 
-            this.setState(results)
-        );
+    if(years.length == 0){
+        return(<div>loading...</div>)
     }
 
-    renderCar(id) {
-        this.setState({activeID: id});
-    }
-
-    render() { 
-        if(this.state.years === []){
-            return(<div>loading...</div>)
-        }
-
-        if(this.state.activeID !== "") {
-            //return <CarDetails id=this.state.activeID/>
-        }
-
-        return (   
+    return (   
+        <div>
             <div>
-                <div>
-                {this.state.years.map(function(yearWithId){
-                    return(
-                    <div key={yearWithId["ID"]}>
-                        <a onClick={() => this.renderCar()}>{yearWithId["Year"]}</a> 
-                    </div>);
-                }.bind(this))}
-                </div>
-                <a href="/">Return to Makes</a>
+            {years.map(yearWithId => {
+                return(
+                <div key={yearWithId["ID"]}>
+                    <Link to={'/details/' + model + '/' + yearWithId["Year"] + '/' + yearWithId["ID"]}>
+                        {yearWithId["Year"]}
+                    </Link> 
+                </div>);
+            })}
+
             </div>
-        )
-    }
+            <button onClick={props.history.goBack}>Return to Models</button>
+        </div>
+    )
 }
 
 export default ModelYears;

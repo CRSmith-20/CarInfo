@@ -1,0 +1,320 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ModelYears /> when component initalizes should initalize to loading 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <ModelYears />
+</Router>
+`;
+
+exports[`<ModelYears /> when component loads should render years with links 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ModelYears
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "model": "Test",
+          },
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            key="1"
+          >
+            <Link
+              to="/details/Test/1990/1"
+            >
+              <LinkAnchor
+                href="/details/Test/1990/1"
+                navigate={[Function]}
+              >
+                <a
+                  href="/details/Test/1990/1"
+                  onClick={[Function]}
+                >
+                  1990
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            key="2"
+          >
+            <Link
+              to="/details/Test/2220/2"
+            >
+              <LinkAnchor
+                href="/details/Test/2220/2"
+                navigate={[Function]}
+              >
+                <a
+                  href="/details/Test/2220/2"
+                  onClick={[Function]}
+                >
+                  2220
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            key="3"
+          >
+            <Link
+              to="/details/Test/3330/3"
+            >
+              <LinkAnchor
+                href="/details/Test/3330/3"
+                navigate={[Function]}
+              >
+                <a
+                  href="/details/Test/3330/3"
+                  onClick={[Function]}
+                >
+                  3330
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          Return to Models
+        </button>
+      </div>
+    </ModelYears>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<ModelYears /> when the api call fails should render a ErrorDisplay 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <ModelYears
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "model": "Test",
+          },
+        }
+      }
+    >
+      <ErrorDisplay
+        title="Select Year"
+      >
+        <div>
+          <h1
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            Select Year
+          </h1>
+          <Alert
+            closeLabel="Close alert"
+            key="error"
+            show={true}
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+            transition={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "defaultProps": Object {
+                  "appear": false,
+                  "in": false,
+                  "mountOnEnter": false,
+                  "timeout": 300,
+                  "unmountOnExit": false,
+                },
+                "render": [Function],
+              }
+            }
+            variant="warning"
+          >
+            <Fade
+              appear={false}
+              in={true}
+              mountOnEnter={false}
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+              timeout={300}
+              unmountOnExit={true}
+            >
+              <Transition
+                addEndListener={[Function]}
+                appear={false}
+                enter={true}
+                exit={true}
+                in={true}
+                mountOnEnter={false}
+                onEnter={[Function]}
+                onEntered={[Function]}
+                onEntering={[Function]}
+                onExit={[Function]}
+                onExited={[Function]}
+                onExiting={[Function]}
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <div
+                  className="fade alert alert-warning show"
+                  role="alert"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  An error has occurred while loading, please refresh and try again.
+                </div>
+              </Transition>
+            </Fade>
+          </Alert>
+        </div>
+      </ErrorDisplay>
+    </ModelYears>
+  </Router>
+</BrowserRouter>
+`;

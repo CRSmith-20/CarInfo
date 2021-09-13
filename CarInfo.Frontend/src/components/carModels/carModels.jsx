@@ -1,38 +1,41 @@
-import { Component } from 'react';
-import * as actions from '../actions.jsx';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getModelsForMake } from '../../actions/actions.jsx';
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
-class CarModels extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { make: props.match.params.make, models: [] }
+
+function CarModels(props){
+    const [make] = useState(props.match.params.make);
+    const [models, setModels] = useState([]);
+
+    useEffect(() => {
+        getModelsForMake(make).then(results => {
+            setModels(results);
+        })
+    }, [])
+
+    if(models[0] == "Error"){
+        return(<ErrorDisplay title="Select Model"></ErrorDisplay>);
     }
 
-    componentDidMount() {
-        actions.getModelsForMake(this.state.make).then(results => 
-            this.setState(results)
-        );
+    if(models.length == 0){
+        return(<div>loading...</div>)
     }
 
-    render() { 
-        if(this.state.models === []){
-            return(<div>loading...</div>)
-        }
-
-        //refactor mapping into shared function
-        return (   
+    return (   
+        <div>
             <div>
-                <div>
-                {this.state.models.map(function(item){
-                    return(
+            {models.map(item => {
+                return(
                     <div key={item}>
-                        <a href={"/years/" + item}>{item}</a> 
+                        <Link to={"/model/" + item}>{item}</Link> 
                     </div>);
-                }.bind(this))}
-                </div>
-                <a href="/">Return to Makes</a>
+                })
+            }
             </div>
-        )
-    }
+            <button onClick={props.history.goBack}>Return to Makes</button>
+        </div>
+    )
 }
 
 export default CarModels;

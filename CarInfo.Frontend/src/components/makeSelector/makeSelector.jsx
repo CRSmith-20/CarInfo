@@ -1,35 +1,40 @@
-import { Component } from 'react';
-import * as actions from '../actions.jsx';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
+import { getAvailableMakes } from '../../actions/actions.jsx';
+import { Alert } from 'react-bootstrap'
+import ErrorDisplay from '../errorDisplay/errorDisplay.jsx';
 
-class MakeSelector extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { makes: [] }
+function MakeSelector(props) {
+    const [makes, setMakes] = useState([]);
+
+    useEffect(() => {
+        getAvailableMakes().then(response => {
+            setMakes(response)
+        })
+    }, [])
+
+    if(makes !== undefined && makes[0] == "Error"){
+        return(<ErrorDisplay title="Select Make"></ErrorDisplay>);
     }
 
-    componentDidMount() {
-        actions.getAvailableMakes().then(results => 
-            this.setState(results)
-        );
+    if(makes.length == 0){
+        return(<div>loading...</div>)
     }
 
-    render() { 
-        if(this.state.makes === []){
-            return(<div>loading...</div>)
-        }
+    return (
+        <div>
+            <h1 style={{textAlign: 'center'}}>Select Make</h1>
 
-        return (
-            <div>
-                {this.state.makes.map(function(item){
-                    console.log(this.state);
-                    return(
-                    <div key={item}>
-                        <a  href={"/models/" + item}>{item}</a>
-                    </div>);
-                }.bind(this))}
-            </div>
-        )
-    }
+            {makes.map(item => {
+                return(
+                <div style={{display: 'inline-block', maxHeight: '500px', maxWidth: '500px'}} key={item}>
+                    <Link to={"/" + item}>
+                        <img style={{maxWidth: "500px", maxHeight: '500px'}} src={process.env.PUBLIC_URL + '/MakerImages/' + item + '.png'}></img>    
+                    </Link>
+                </div>);
+            })}
+        </div>
+    )
 }
 
-export default MakeSelector;
+export default MakeSelector

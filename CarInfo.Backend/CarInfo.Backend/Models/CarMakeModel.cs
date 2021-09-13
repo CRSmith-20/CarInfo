@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-#nullable disable
+namespace CarInfo.Backend.API.Models {
 
-namespace CarInfo.Backend.Models
-{
-    public partial class CarMakeModel
-    {
-        public CarMakeModel()
-        {
-            CarDetails = new HashSet<CarDetail>();
-            EngineDetails = new HashSet<EngineDetail>();
-        }
+  public partial class CarMakeModel {
 
-        public int Id { get; set; }
-        public string Make { get; set; }
-        public string Model { get; set; }
-        public int ModelYear { get; set; }
-
-        public virtual ICollection<CarDetail> CarDetails { get; set; }
-        public virtual ICollection<EngineDetail> EngineDetails { get; set; }
+    public CarMakeModel() {
+      CarDetails = new HashSet<CarDetail>();
+      EngineDetails = new HashSet<EngineDetail>();
     }
+
+    public int Id { get; set; }
+    public string Make { get; set; }
+    public string Model { get; set; }
+    public int ModelYear { get; set; }
+
+    public virtual ICollection<CarDetail> CarDetails { get; set; }
+    public virtual ICollection<EngineDetail> EngineDetails { get; set; }
+  }
 }

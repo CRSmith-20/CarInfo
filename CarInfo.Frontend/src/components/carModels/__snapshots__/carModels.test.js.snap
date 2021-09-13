@@ -1,0 +1,339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CarModels /> when component initalizes should initalize to loading 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <CarModels />
+</Router>
+`;
+
+exports[`<CarModels /> when component loads should render models with links 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CarModels
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "make": "Horrible",
+          },
+        }
+      }
+    >
+      <div>
+        <div>
+          <div
+            key="Sonata"
+          >
+            <Link
+              to="/model/Sonata"
+            >
+              <LinkAnchor
+                href="/model/Sonata"
+                navigate={[Function]}
+              >
+                <a
+                  href="/model/Sonata"
+                  onClick={[Function]}
+                >
+                  Sonata
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            key="Elantra"
+          >
+            <Link
+              to="/model/Elantra"
+            >
+              <LinkAnchor
+                href="/model/Elantra"
+                navigate={[Function]}
+              >
+                <a
+                  href="/model/Elantra"
+                  onClick={[Function]}
+                >
+                  Elantra
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            key="Hotel"
+          >
+            <Link
+              to="/model/Hotel"
+            >
+              <LinkAnchor
+                href="/model/Hotel"
+                navigate={[Function]}
+              >
+                <a
+                  href="/model/Hotel"
+                  onClick={[Function]}
+                >
+                  Hotel
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+          <div
+            key="Trivago"
+          >
+            <Link
+              to="/model/Trivago"
+            >
+              <LinkAnchor
+                href="/model/Trivago"
+                navigate={[Function]}
+              >
+                <a
+                  href="/model/Trivago"
+                  onClick={[Function]}
+                >
+                  Trivago
+                </a>
+              </LinkAnchor>
+            </Link>
+          </div>
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          Return to Makes
+        </button>
+      </div>
+    </CarModels>
+  </Router>
+</BrowserRouter>
+`;
+
+exports[`<CarModels /> when the api call fails should render a ErrorDisplay 1`] = `
+<BrowserRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <CarModels
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "canGo": [Function],
+          "createHref": [Function],
+          "entries": Array [
+            Object {
+              "hash": "",
+              "key": "consistent",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+          ],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "index": 0,
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "key": "consistent",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "make": "Horrible",
+          },
+        }
+      }
+    >
+      <ErrorDisplay
+        title="Select Model"
+      >
+        <div>
+          <h1
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+          >
+            Select Model
+          </h1>
+          <Alert
+            closeLabel="Close alert"
+            key="error"
+            show={true}
+            style={
+              Object {
+                "textAlign": "center",
+              }
+            }
+            transition={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "defaultProps": Object {
+                  "appear": false,
+                  "in": false,
+                  "mountOnEnter": false,
+                  "timeout": 300,
+                  "unmountOnExit": false,
+                },
+                "render": [Function],
+              }
+            }
+            variant="warning"
+          >
+            <Fade
+              appear={false}
+              in={true}
+              mountOnEnter={false}
+              style={
+                Object {
+                  "textAlign": "center",
+                }
+              }
+              timeout={300}
+              unmountOnExit={true}
+            >
+              <Transition
+                addEndListener={[Function]}
+                appear={false}
+                enter={true}
+                exit={true}
+                in={true}
+                mountOnEnter={false}
+                onEnter={[Function]}
+                onEntered={[Function]}
+                onEntering={[Function]}
+                onExit={[Function]}
+                onExited={[Function]}
+                onExiting={[Function]}
+                style={
+                  Object {
+                    "textAlign": "center",
+                  }
+                }
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <div
+                  className="fade alert alert-warning show"
+                  role="alert"
+                  style={
+                    Object {
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  An error has occurred while loading, please refresh and try again.
+                </div>
+              </Transition>
+            </Fade>
+          </Alert>
+        </div>
+      </ErrorDisplay>
+    </CarModels>
+  </Router>
+</BrowserRouter>
+`;
