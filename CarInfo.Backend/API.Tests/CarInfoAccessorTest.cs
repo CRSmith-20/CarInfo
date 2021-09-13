@@ -9,7 +9,7 @@ namespace API.Tests {
   public class CarInfoAccessorTest {
     private IConfiguration _config;
     [Fact]
-    public void GetMakeReturnsValidMakesAsJson() {
+    public void GetMake_ValidMake_Returns() {
       var options = new DbContextOptionsBuilder<CarDBContext>()
               .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
               .Options;
@@ -23,7 +23,19 @@ namespace API.Tests {
     }
 
     [Fact]
-    public void GetModelReturnsValidModelsAsJson() {
+    public void GetMake_InvalidMake_ReturnsEmpty() {
+      var options = new DbContextOptionsBuilder<CarDBContext>()
+              .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+              .Options;
+
+      var x = new CarInfoAccessor(new CarDBContext(options, _config));
+      var results = x.GetMake();
+      Assert.Equal("", results);
+    }
+
+
+    [Fact]
+    public void GetModel_ValidMake_ReturnsJson() {
       var options = new DbContextOptionsBuilder<CarDBContext>()
               .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
               .Options;
@@ -37,7 +49,18 @@ namespace API.Tests {
     }
 
     [Fact]
-    public void GetYearsReturnsValidYearsAsJson() {
+    public void GetModel_InvalidMake_ReturnsEmpty() {
+      var options = new DbContextOptionsBuilder<CarDBContext>()
+              .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+              .Options;
+
+      var x = new CarInfoAccessor(new CarDBContext(options, _config));
+      var results = x.GetModel("DNE");
+      Assert.Equal("", results);
+    }
+
+    [Fact]
+    public void GetYears_ValidModel_ReturnsJson() {
       var options = new DbContextOptionsBuilder<CarDBContext>()
               .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
               .Options;
@@ -51,7 +74,18 @@ namespace API.Tests {
     }
 
     [Fact]
-    public void GetCarDetailsReturnsValidDetailsAsJson() {
+    public void GetYears_InvalidModel_ReturnsEmpty() {
+      var options = new DbContextOptionsBuilder<CarDBContext>()
+              .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+              .Options;
+
+      var x = new CarInfoAccessor(new CarDBContext(options, _config));
+      var results = x.GetYears("Dorester");
+      Assert.Equal("", results);
+    }
+
+    [Fact]
+    public void GetCarDetails_ValidId_ReturnsJson() {
       var options = new DbContextOptionsBuilder<CarDBContext>()
               .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
               .Options;
@@ -61,9 +95,22 @@ namespace API.Tests {
       }
       var x = new CarInfoAccessor(new CarDBContext(options, _config));
       var results = x.GetCarDetails(2);
-      Console.WriteLine(results);
+
       Assert.Equal("[{\"Drive\":\"AWD\",\"Transmission\":\"Automatic\",\"EngineStyle\":null,\"Horsepower\":300,\"EngineRpm\":7000,\"CityMpg\":2.0,\"HighwayMpg\":4.0}]", results);
     }
+
+    [Fact]
+    public void GetCarDetails_InvalidId_ReturnsEmpty() {
+      var options = new DbContextOptionsBuilder<CarDBContext>()
+              .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
+              .Options;
+
+      var x = new CarInfoAccessor(new CarDBContext(options, _config));
+      var results = x.GetCarDetails(2);
+      Console.WriteLine(results);
+      Assert.Equal("", results);
+    }
+
     private void SeedDataForDatabase(CarDBContext context) {
       context.CarMakeModels.Add(new CarMakeModel { Make = "Hyundai", Model = "Forester", ModelYear = 1992 });
       context.CarMakeModels.Add(new CarMakeModel { Make = "Hyundai", Model = "Borester", ModelYear = 1992 });

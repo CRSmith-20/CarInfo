@@ -22,25 +22,33 @@ namespace CarInfo.Backend.DataAccess {
       return JsonConvert.SerializeObject(results);
     }
 
-    public string GetModel(string make) {
+    public virtual string GetModel(string make) {
       var results = dbContext.CarMakeModels
         .Where(row => row.Make == make)
         .Select(row => row.Model)
         .Distinct();
 
+      if(results.Count() <= 0) {
+        return string.Empty;
+      }
+
       return JsonConvert.SerializeObject(results);
     }
 
-    public string GetYears(string model) {
+    public virtual string GetYears(string model) {
       var results = dbContext.CarMakeModels
         .Where(row => row.Model == model)
         .OrderBy(row => row.ModelYear)
         .Select(row => new YearWithId { ID = row.Id, Year = row.ModelYear });
 
+      if(results.Count() <= 0) {
+        return string.Empty;
+      }
+
       return JsonConvert.SerializeObject(results);
     }
 
-    public string GetCarDetails(int id) {
+    public virtual string GetCarDetails(int id) {
       var results = dbContext.CarDetails
         .Where(row => row.CarId == id)
         .Join(dbContext.EngineDetails, 
@@ -55,6 +63,10 @@ namespace CarInfo.Backend.DataAccess {
           CityMpg = ed.CityMpg,
           HighwayMpg = ed.HighwayMpg
         });
+
+      if(results.Count() <= 0) {
+        return string.Empty;
+      }
 
       return JsonConvert.SerializeObject(results);
     }
